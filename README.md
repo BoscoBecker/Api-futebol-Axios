@@ -12,4 +12,4 @@ Router http://localhost:3000/api/campeonatos/3 lista campeonato específico.
 
 ## Fases
 
-Router http://localhost:3000/api/campeonatos/14/fases/169
+Router http://localhost:3000/api/campeonatos/14/fases/169 lista Fases específicas.
