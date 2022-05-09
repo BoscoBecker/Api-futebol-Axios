@@ -7,7 +7,9 @@ exports.getCampeonatos = async (req, res) => {
     try {
         let Getcampeonatos = await
             axios.get(`${process.env.API_URL}/campeonatos`, {
-                headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
+                headers: {
+                    'Authorization': `Bearer ${process.env.API_KEY}`
+                }
             });
         res.status(200).json(Getcampeonatos.data);
     } catch (error) {
@@ -27,7 +29,9 @@ exports.getCampeonatoById = async (req, res) => {
             id: yup.number().required()
         });
 
-        if (!(await shema.isValid({ id }))) {
+        if (!(await shema.isValid({
+            id
+        }))) {
             return res.status(400).send({
                 message: 'Bad Request',
                 body: 'Invalid id'
@@ -36,7 +40,9 @@ exports.getCampeonatoById = async (req, res) => {
 
         let GetcampeonatoById = await
             axios.get(`${process.env.API_URL}/campeonatos/${id}`, {
-                headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
+                headers: {
+                    'Authorization': `Bearer ${process.env.API_KEY}`
+                }
             });
         res.status(200).json(GetcampeonatoById.data);
 
@@ -49,4 +55,3 @@ exports.getCampeonatoById = async (req, res) => {
     }
 
 }
-

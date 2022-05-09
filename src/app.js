@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const app = express();
 const index = require('./routes/index');
 const campeonato = require('./routes/campeonatos.routes');
+const fases = require('./routes/fase.routes');
 
 app.use(cors());
 app.use(helmet());
@@ -18,6 +19,7 @@ app.set('trust proxy', '127.0.0.1');
 
 app.use(index);
 app.use('/api',campeonato);
+app.use('/api',fases);
 
 module.exports = app;
 
